@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Cart | Dealbazaar</title>
+    <link href="/static/css1/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css1/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css1/prettyPhoto.css" rel="stylesheet">
+    <link href="/static/css1/price-range.css" rel="stylesheet">
+    <link href="/static/css1/animate.css" rel="stylesheet">
+    <link href="/static/css1/main.css" rel="stylesheet">
+    
+    <link href="/static/css1/style.css" rel="stylesheet">
+    
+	
+	<link href="/static/css1/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="/static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+	<header id="header"><!--header-->
+      <!-- navbar begins -->
+    <nav class="navbar navbar-inverse" style="z-index:1000; position: absolute; width:100%; " >
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <span style="font-weight:bold;"><a class="navbar-brand" href="#">DealBazaar</a></span>
+    </div>
+
+        <ul class="nav navbar-nav">
+      <li class="active"><a href="/home">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">My Shelf <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/posted_items">On Bids</a></li>
+          <li><a href="/sold_items">Sold Items</a></li>
+        </ul>
+      </li>
+      <li><a href="/purchased_items">My Purchase</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+      
+            <li><a href="/settings" title="Profile Settings"><span class="glyphicon glyphicon-wrench"></span></a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        </ul>
+    </div>
+    </nav>
+    <!-- navbar ends -->
+	</header><!--/header-->
+		<br /><br / ><br /><br /><br / ><br />
+		<div class="col-md-9 animated wow fadeInRight" data-wow-delay=".5s">
+				<div class="col-md-5 grid-im">		
+		<div class="flexslider">
+
+			        <div class="thumb-image" style="padding-top:15px; padding-left:7px;"> <img src="{{src}}" data-imagezoom="true" class="img-responsive" style="border-style: solid; border-width: 5px; border-color:orange; margin-bottom:20px; padding:1px 1px 1px 1px; margin-left:5px;"> </div>
+		</div>
+	</div>	
+<div class="col-md-7 single-top-in">
+						<div class="span_2_of_a1 simpleCart_shelfItem">
+				<h3 style="padding-top:20px;">{{item.name}}</h3>
+				<p class="in-para"> {{item.description}}</p>
+			    <div class="price_single">
+				  <span class="item_price">Rs. {{item.original_price}}</span>
+				 
+				 <div class="clearfix"></div>
+				</div></div></div>
+	<section id="cart_items">
+		<div class="container">
+			
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Users</td>
+							<td class="description"></td>
+							<td class="price">Bidding Price</td>
+							<td class="quantity">Status</td>
+							
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+					{%if bids|length > 0%}
+  							{% for bid in bids %}
+						<tr>
+							
+							<td class="cart_product">
+								<a href=""><img src="/static/images/user.jpg" alt="" height="100" width="100"></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">{{bid.name}}</a></h4>
+								
+							</td>
+							<td class="cart_price">
+								<p>BID : Rs. {{bid.amount}}</p>
+							</td>
+							<td class="cart_quantity">
+								 <a href = "/view/{{item._id}}/bid/{{bid._id}}/accept" class = "btn btn-danger" role = "button">
+               Accept
+            </a>
+								 
+							</td>
+							
+						</tr>
+					   {% endfor %}
+						{% else %}
+            <tr>
+            <td class="cart_product">
+        					<h4 align="center"> There are currently no bidders for this product.</h4>
+                  </td>
+            </tr>
+						{% endif %}
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section> <!--/#cart_items-->
+
+	
+{% if get_flashed_messages(with_categories=true, category_filter=["error"])|length > 0 %}
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+    
+          <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: crimson;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">DealBazaar..</h4>          
+                </div>
+            <div class="modal-body">
+            {% for error in get_flashed_messages(with_categories=true, category_filter=["error"]) %}
+                <p>
+                {{ error[1] }}
+                </p>
+            {% endfor %}
+            </div>
+            <div class="modal-footer">
+          
+            </div>
+            </div>
+      
+            </div>
+        </div>
+
+  {% endif %}
+
+
+  <script type="text/javascript">
+            $(function(){
+                $("#myModal").modal()
+            });
+        </script>
+	
+
+
+    <script src="/static/js1/jquery.js"></script>
+	<script src="/static/js1/bootstrap.min.js"></script>
+	<script src="/static/js1/jquery.scrollUp.min.js"></script>
+    <script src="/static/js1/jquery.prettyPhoto.js"></script>
+    <script src="/static/js1/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+	<!--<![endif]-->
+
+	<head>
+		<meta charset="utf-8">
+		<title>DealBazaar.Com | Account Settings</title>
+		
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script>
+				function show() {
+		    //document.getElementById("dThreshold").display ="block";
+		    document.getElementById("dThreshold").style.display ="block";
+		}
+		</script>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+
+		<!-- Web Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+		<!-- Bootstrap core CSS -->
+		<link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Font Awesome CSS -->
+		<link href="static/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+		<!-- Fontello CSS -->
+		<link href="static/fonts/fontello/css/fontello.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet" >
+		<!-- Plugins -->
+		<link href="static/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<link href="static/plugins/rs-plugin/css/settings.css" rel="stylesheet">
+		<link href="static/css/animations.css" rel="stylesheet">
+		<link href="static/plugins/owl-carousel/owl-carousel.css" rel="stylesheet">
+		<link href="static/plugins/owl-carousel/owl-transitions.css" rel="stylesheet">
+		<link href="static/plugins/hover/hover.css" rel="stylesheet">		
+		
+		<!-- The Project's core CSS file -->
+		<link href="static/css/style2.css" rel="stylesheet" >
+		<!-- The Project's Typography CSS file, includes used fonts -->
+		<!-- Used font for body: Roboto -->
+		<!-- Used font for headings: Raleway -->
+		<link href="static/css/typography-default.css" rel="stylesheet" >
+		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
+		<link href="#" data-style="styles" rel="stylesheet">
+		<link href="static/style-switcher/style-switcher.css" rel="stylesheet">
+		
+
+		<!-- Custom css --> 
+		<link href="static/css/custom.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body >
+
+	    <!-- navbar begins -->
+    <nav class="navbar navbar-inverse" style="z-index:1000; position: absolute; width:100%; " >
+    <div class="container-fluid">
+    <div class="navbar-header">
+        <span style="font-weight:bold;"><a class="navbar-brand" href="#">DealBazaar</a></span>
+    </div>
+
+        <ul class="nav navbar-nav">
+      <li class="active"><a href="/home">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">My Shelf <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/posted_items">On Bids</a></li>
+          <li><a href="/sold_items">Sold Items</a></li>
+        </ul>
+      </li>
+      <li><a href="/purchased_items">My Purchase</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><div class="header-dropdown-buttons hidden-xs hidden-sm">
+                                                    <div class="btn-group dropdown">
+                                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></button>
+                                                        <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                                            <li>
+                                                                <form action="/view/" method="POST" class="search-box margin-clear">
+                                                                    <div class="form-group has-feedback">
+                                                                        <input type="text" name="search" class="form-control" placeholder="Search" id="search">
+                                                                        <i class="icon-search form-control-feedback"></i>
+                                                                    </div>
+                                                                </form>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                </div>
+            </li>
+            <li><a href="/settings" title="Profile Settings"><span class="glyphicon glyphicon-wrench"></span></a></li>
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        </ul>
+    </div>
+    </nav>
+    <!-- navbar ends -->
+
+	<!-- Header starts -->
+	<div>
+		<img src="static/images/image5.jpg" class="img-responsive" alt="background" style="width:100%;">
+		<div id="logo" style="z-index: 1000; position:relative; margin-top:-10%;">
+		<center>
+			<img src="static/images/logo1.gif" class="img-responsive" alt="logo">
+		</center>
+		</div>
+	</div>
+	<!-- Header ends -->
+
+	<p id="space" style="margin-bottom: 5%;"></p>
+
+	<!-- Register -->
+  
+    <form class="form-signin" method="POST" id="form"> 
+     
+      <h3 class="form-signin-heading" align="center-block">Edit Your Account Settings </h3>
+      <br>
+      <input type="label" class="form-control" name="name" value="{{data.name}}" required="" autofocus="" readonly/>
+      <br>
+      <input type="Email" class="form-control" name="email" value="{{data.email}}"" required="" readonly/> 
+      <br>
+      <input type="text" class="form-control" onFocus="geolocate()" name="address" id="address" value="{{data.address}}" required="" autofocus="" />
+      <br>
+      <input type="text" class="form-control" name="college" value="{{data.college}}" required="" autofocus="" />
+      <br>
+      <input type="text" class="form-control" name="city" value="{{data.city}}" required="" autofocus="" />
+      <br>
+      <input type="text" class="form-control" name="contact" value="{{data.contact}}" required="" autofocus="" />
+      <br>
+            <input id="placeid" name="placeid" type="hidden"></input>
+
+      <a href="#form" style="float:right;" onclick = "show();">Change Password </a>
+      <br>
+      <div id="dThreshold" style="display: none">
+        <input type="password" class="form-control" name="password" placeholder="New Password" autofocus="" />
+      </div>
+      <br>
+      <button class="btn btn-lg btn-danger btn-block" type="submit" >Save Details</button>
+	</form> 
+	<!-- Register form ends -->
+
+  {% if get_flashed_messages(with_categories=true, category_filter=["error"])|length > 0 %}
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+    
+          <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: crimson;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">DealBazaar..</h4>          
+                </div>
+            <div class="modal-body">
+            {% for error in get_flashed_messages(with_categories=true, category_filter=["error"]) %}
+                <p>
+                {{ error[1] }}
+                </p>
+            {% endfor %}
+            </div>
+            <div class="modal-footer">
+          
+            </div>
+            </div>
+      
+            </div>
+        </div>
+
+  {% endif %}
+
+
+    <script type="text/javascript">
+      var placeSearch, autocomplete;
+      function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('address')),
+            {types: ['geocode']});
+
+        autocomplete.addListener('place_changed', function(){
+          id = autocomplete.getPlace().place_id;
+          console.log(id);
+          document.getElementById('placeid').value = id;
+        });
+      }
+
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVE9osSCgxkIPp4LGEp1xwhmGrMVxNpnc&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
+        <script type="text/javascript">
+            $(function(){
+                $("#myModal").modal()
+            });
+        </script>
+<!-- JavaScript files placed at the end of the document so the pages load faster -->
+        <!-- ================================================== -->
+        <!-- Jquery and Bootstap core js files -->
+        <script type="text/javascript" src="/static/plugins/jquery.js"></script>
+        <script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
+        <!-- Modernizr javascript -->
+        <script type="text/javascript" src="/static/plugins/modernizr.js"></script>
+        <!-- jQuery Revolution Slider  -->
+        <script type="text/javascript" src="/static/plugins/rs-plugin/js/jquery-themepunch-tools.js"></script>
+        <script type="text/javascript" src="/static/plugins/rs-plugin/js/jquery-themepunch-revolution.js"></script>
+        <!-- Isotope javascript -->
+        <script type="text/javascript" src="/static/plugins/isotope/isotope.js"></script>
+        <!-- Magnific Popup javascript -->
+        <script type="text/javascript" src="/static/plugins/magnific-popup/jquery-magnific-popup.js"></script>
+        <!-- Appear javascript -->
+        <script type="text/javascript" src="/static/plugins/waypoints/jquery-waypoints.js"></script>
+        <!-- Count To javascript -->
+        <script type="text/javascript" src="/static/plugins/jquery-countTo.js"></script>
+        <!-- Parallax javascript -->
+        <script src="/static/plugins/jquery-parallax.js"></script>
+        <!-- Contact form -->
+        <script src="/static/plugins/jquery-validate.js"></script>
+        <!-- Background Video -->
+        <script src="/static/plugins/vide/jquery-vide.js"></script>
+        <!-- Owl carousel javascript -->
+        <script type="text/javascript" src="/static/plugins/owl-carousel/jquery-owl-carousel.js"></script>
+        <!-- SmoothScroll javascript -->
+        <script type="text/javascript" src="/static/plugins/jquery-browser.js"></script>
+        <script type="text/javascript" src="/static/plugins/SmoothScroll.js"></script>
+        <!-- Initialization of Plugins -->
+        <script type="text/javascript" src="/static/js/template.js"></script>
+        <!-- Custom Scripts -->
+        <script type="text/javascript" src="/static/js/custom.js"></script>
+        <!-- Color Switcher (Remove these lines) -->
+        <script type="text/javascript" src="style-switcher/jquery-style-switcher.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</body>
+</html>     

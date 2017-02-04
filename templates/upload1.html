@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+	<!--<![endif]-->
+
+	<head>
+		<meta charset="utf-8">
+		<title>DealBazaar.Com | Sell An Item</title>
+		
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+
+		<!-- Web Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+
+		<!-- Bootstrap core CSS -->
+		<link href="static/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Font Awesome CSS -->
+		<link href="static/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+		<!-- Fontello CSS -->
+		<link href="static/fonts/fontello/css/fontello.css" rel="stylesheet">
+
+		<!-- Plugins -->
+		<link href="static/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<link href="static/plugins/rs-plugin/css/settings.css" rel="stylesheet">
+		<link href="static/css/animations.css" rel="stylesheet">
+		<link href="static/plugins/owl-carousel/owl-carousel.css" rel="stylesheet">
+		<link href="static/plugins/owl-carousel/owl-transitions.css" rel="stylesheet">
+		<link href="static/plugins/hover/hover.css" rel="stylesheet">		
+		
+		<!-- The Project's core CSS file -->
+		<link href="static/css/style2.css" rel="stylesheet" >
+		<!-- The Project's Typography CSS file, includes used fonts -->
+		<!-- Used font for body: Roboto -->
+		<!-- Used font for headings: Raleway -->
+		<link href="static/css/typography-default.css" rel="stylesheet" >
+		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
+		<link href="#" data-style="styles" rel="stylesheet">
+		<link href="static/style-switcher/style-switcher.css" rel="stylesheet">
+		
+
+		<!-- Custom css --> 
+		<link href="static/css/custom.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	</head>
+
+	<body  style="">
+
+<!-- navbar begins -->
+	<nav class="navbar navbar-inverse" style="z-index:1000; position: absolute; width:100%; ">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <span style="font-weight:bold;"><a class="navbar-brand" href="/home">DealBazaar</a></span>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li><a href="/home">Home</a></li>
+	      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">My Shelf <span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="/posted_items">On Bids</a></li>
+	          <li><a href="/sold_items">Sold Items</a></li>
+	        </ul>
+	      </li>
+	      <li><a href="/purchased_items">My Purchase</a></li>
+
+	    
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="/settings" title="Profile Settings"><span class="glyphicon glyphicon-wrench"></span></a></li>
+	      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+	    </ul>
+	  </div>
+	</nav>
+<!-- navbar ends -->	
+
+<p id="space" style="padding-top:6em;"></p>
+
+
+<div class="container ">
+            {% for error in get_flashed_messages(with_categories=true, category_filter=["error"]) %}
+            <div class="alert alert-dismissable alert-danger" align="center">
+                <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                    {{ error[1] }}
+            </div>
+            {% endfor %}
+        </div>
+
+<!-- Register -->
+  
+    <div class="row">
+
+
+     <div class="col-sm-5">
+        <center>
+        <img src="static/images/logo1.gif" class="rounded float-xs-right" alt="..." align="center-block" style="padding-top:6.5em;padding-bottom:2em;">	
+        
+        </center>
+    </div>
+    <div class="col-sm-7">
+        <form class="form-signin" method="POST" enctype="multipart/form-data"">
+        	
+      <!-- <img src="images/man.png" class="circle" alt="Cinque Terre" align="center-block">	 --> 
+
+      <h3 class="form-signin-heading" align="center-block">Enter The Product Details </h3>
+      <br>
+      <br>
+      <input type="label" class="form-control" name="item_name" placeholder="Product Name" required="" autofocus="" />
+      <br>
+      <input type="text" class="form-control" name="item_type" placeholder="Item Type" required="" autofocus="" />
+      <br>
+      <input type="text" class="form-control" name="description" placeholder="Description" required="" /> 
+      <br>
+      <input type="text" class="form-control" name="mrp" placeholder="Actual Price" required="" autofocus="" />
+      <br>
+      <input type="text" class="form-control" name="original_price" placeholder="Base Bid Price" required="" autofocus="" />
+      <br>
+      
+      
+      <br>
+       <div class="form-group">
+       		<label class="control-label col-sm-2" ></label>
+       		<div class="col-sm-4">
+       	</div>
+       <div class=" col-sm-5">
+       <label class = "btn btn-default btn-file" style="width:100%; background-color:#5cb85c; float:right";>
+            Upload Image <input type="file" name="photo" style="display: none;">
+        </label>
+        </div>
+  </div>   
+      <br>
+      <br>
+      <button class="btn btn-lg btn-danger btn-block" type="submit" >Submit</button>
+
+    </form>
+    </div>
+    
+</div>
+    
+
+
+</body>
+</html>
